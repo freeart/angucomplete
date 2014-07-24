@@ -22,6 +22,7 @@ angular.module('angucomplete', [] )
             "inputClass": "@inputclass",
             "userPause": "@pause",
             "localData": "=localdata",
+            "display": "=display",
             "searchFields": "@searchfields",
             "minLengthUser": "@minlength",
             "matchClass": "@matchclass"
@@ -37,7 +38,9 @@ angular.module('angucomplete', [] )
             $scope.searching = false;
             $scope.pause = 500;
             $scope.minLength = 3;
-            $scope.searchStr = null;
+            $scope.$watch('display', function(){
+                $scope.searchStr = ($scope.display || '') + '';
+            });
 
             if ($scope.minLengthUser && $scope.minLengthUser != "") {
                 $scope.minLength = $scope.minLengthUser;
