@@ -15,6 +15,7 @@ angular.module('angucomplete', [] )
             "url": "@url",
             "dataField": "@datafield",
             "titleField": "@titlefield",
+            "idField": "@idfield",
             "descriptionField": "@descriptionfield",
             "imageField": "@imagefield",
             "imageUri": "@imageuri",
@@ -189,7 +190,7 @@ angular.module('angucomplete', [] )
                     result.title = result.title.toString().replace(/(<([^>]+)>)/ig, '');
                 }
                 $scope.searchStr = $scope.lastSearchTerm = result.title;
-                $scope.selectedObject = result;
+                $scope.selectedObject = $scope.idfield ? result.originalObject[$scope.idfield] : result.originalObject;
                 $scope.showDropdown = false;
                 $scope.results = [];
                 //$scope.$apply();
