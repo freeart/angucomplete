@@ -190,7 +190,7 @@ angular.module('angucomplete', [] )
                     result.title = result.title.toString().replace(/(<([^>]+)>)/ig, '');
                 }
                 $scope.searchStr = $scope.lastSearchTerm = result.title;
-                $scope.selectedObject = $scope.idfield ? result.originalObject[$scope.idfield] : result.originalObject;
+                $scope.selectedObject = $scope.idField ? result.originalObject[$scope.idField] : result.originalObject;
                 $scope.showDropdown = false;
                 $scope.results = [];
                 //$scope.$apply();
